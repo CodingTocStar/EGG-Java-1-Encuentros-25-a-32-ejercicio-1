@@ -39,7 +39,7 @@ import java.util.Scanner;
 
 public class CadenaServicio {
 
-    Scanner lector = new Scanner(System.in);
+    Scanner lector = new Scanner(System.in).useDelimiter("\n");
 
     public Cadena cadena() {
 
@@ -97,6 +97,7 @@ public class CadenaServicio {
         
         System.out.println("Que caracter quiere buscar?");
         char c = lector.next().charAt(0);
+        System.out.println("");
         
         for (int i = 0; i < cadena.getLongitud(); i++) {
             
@@ -129,8 +130,7 @@ public class CadenaServicio {
     public void compararLongitud(Cadena cadena){
         
         System.out.println("Ingrese una nueva frase para comparar su longitud con la frase primera");
-        String nuevaFrase = lector.nextLine();
-        
+        String nuevaFrase = lector.next();
         
         if (cadena.getFrase().length() == nuevaFrase.length()){
             
@@ -143,4 +143,65 @@ public class CadenaServicio {
     
     }
     
+
+    //f) Método unirFrases(String frase), deberá unir la frase contenida en la
+    //clase Cadena con una nueva frase ingresada por el usuario y mostrar
+    //la frase resultante.
+    
+    public void unirFrases(Cadena cadena) {
+    
+        System.out.println("Ingrese otra nueva frase para agregar a la principal:");
+        String otraFrase = lector.nextLine();
+        
+        String fraseUnida = cadena.getFrase().concat(" " + otraFrase);
+        
+        System.out.println(fraseUnida);
+    }
+    
+//    g) Método reemplazar(String letra), deberá reemplazar todas las letras
+//    “a” que se encuentren en la frase, por algún otro carácter
+//    seleccionado por el usuario y mostrar la frase resultante.
+    
+    public void reemplazar(Cadena cadena) {
+        
+        for (int i = 0; i < cadena.getLongitud(); i++) {
+            
+            char d = cadena.getFrase().toLowerCase().charAt(i);
+            
+           
+            
+            if (d =='a') {
+                
+                d = '@'; //para caracteres es con COMILLAS SIMPLES
+                
+            }
+            
+            System.out.print(d);
+        }
+    }
+
+    
+    //h) Método contiene(String letra), deberá comprobar si la frase contiene
+    //una letra que ingresa el usuario y devuelve verdadero si la contiene y
+    //falso si no.
+    
+    public boolean contiene(Cadena cadena){
+        
+        boolean verdad = false;
+        
+        System.out.println("Ingrese una letra para saber si esta");
+        char letraBuscada = lector.next().charAt(0);
+        
+        for (int i = 0; i < cadena.getLongitud(); i++) {
+            
+            char letraFrase = cadena.getFrase().charAt(i);
+            
+            if (letraBuscada == letraFrase) {
+                verdad = true;
+                break;
+            }
+        }
+        System.out.println("El resultado al final fue: " + verdad);
+        return verdad;
+    }
 }

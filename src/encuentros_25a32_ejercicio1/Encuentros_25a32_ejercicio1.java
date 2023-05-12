@@ -59,6 +59,14 @@ public class Encuentros_25a32_ejercicio1 {
         //e)
         servicio.compararLongitud(cadena);
         
+        //f)
+        servicio.unirFrases(cadena);
+        
+        //g)
+        servicio.reemplazar(cadena);
+        
+        //h)
+        servicio.contiene(cadena);
     }
     
 }
